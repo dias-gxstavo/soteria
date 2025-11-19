@@ -61,15 +61,15 @@ export class ConfiguracoesPage {
     }
   ];
 
-  // Dados e Privacidade
-  dataOptions: ConfigOption[] = [
-    {
-      id: 'clearCache',
-      title: 'Limpar Cache',
-      icon: 'trash',
-      type: 'action'
-    }
-  ];
+  // // Dados e Privacidade
+  // dataOptions: ConfigOption[] = [
+  //   {
+  //     id: 'clearCache',
+  //     title: 'Limpar Cache',
+  //     icon: 'trash',
+  //     type: 'action'
+  //   }
+  // ];
 
   // Outras Opções
   otherOptions: ConfigOption[] = [
@@ -137,11 +137,10 @@ export class ConfiguracoesPage {
 
   handleAction(actionId: string) {
     switch(actionId) {
-      case 'clearCache':
-        console.log('Limpar cache');
-        // Implementar lógica de limpar cache
-        this.showConfirmAlert('Limpar Cache', 'Deseja realmente limpar o cache?');
-        break;
+      // case 'clearCache':
+      //   console.log('Limpar cache');
+      //   this.showConfirmAlert('Limpar Cache', 'Deseja realmente limpar o cache?');
+      //   break;
       case 'logout':
         console.log('Sair');
         // Implementar lógica de logout
@@ -151,7 +150,6 @@ export class ConfiguracoesPage {
   }
 
   async showConfirmAlert(title: string, message: string) {
-    // Implementar alert de confirmação
     console.log(`Alert: ${title} - ${message}`);
   }
 
