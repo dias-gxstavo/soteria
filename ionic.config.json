@@ -1,0 +1,7 @@
+{
+  "name": "passwd-mng",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
