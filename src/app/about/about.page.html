@@ -1,0 +1,140 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar class="modal-toolbar">
+    <ion-title class="modal-title">Sobre o Soteria</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()" class="close-button">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-content">
+  <div class="about-container">
+    
+    <!-- App Logo & Info -->
+    <div class="app-header">
+      <div class="app-logo">
+        <div class="shield-icon">
+          <img src="assets/icon/favicon.png" alt="Ícone-logo ilustrado de um cavalheiro em cima de um cavalo segurando uma espada e um escudo" class="logo-image">
+        </div>
+      </div>
+      <h1 class="app-title">Soteria</h1>
+      <p class="app-subtitle">Gerenciador de Senhas Seguro</p>
+    </div>
+
+    <!-- Descrição do Projeto -->
+    <div class="section">
+      <div class="section-header">
+        <ion-icon name="information-circle" class="section-icon"></ion-icon>
+        <h2 class="section-title">Sobre o Projeto</h2>
+      </div>
+      <p class="section-text">
+        O Soteria é um projeto acadêmico desenvolvido para a disciplina de 
+        Desenvolvimento Mobile. Seu objetivo é oferecer uma solução segura e 
+        intuitiva para gerenciamento de senhas em dispositivos Android.
+      </p>
+      <p class="section-text">
+        Este aplicativo demonstra a aplicação prática de conceitos de segurança 
+        da informação, desenvolvimento mobile e experiência do usuário.
+      </p>
+    </div>
+
+    <!-- Recursos Principais -->
+    <div class="section">
+      <div class="section-header">
+        <ion-icon name="shield-checkmark" class="section-icon"></ion-icon>
+        <h2 class="section-title">Recursos Principais</h2>
+      </div>
+      <div class="features-grid">
+        <div *ngFor="let feature of features" class="feature-card">
+          <div class="feature-icon">
+            <ion-icon [name]="feature.icon"></ion-icon>
+          </div>
+          <div class="feature-content">
+            <h3 class="feature-title">{{ feature.title }}</h3>
+            <p class="feature-description">{{ feature.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tecnologias Utilizadas -->
+    <div class="section">
+      <div class="section-header">
+        <ion-icon name="code-slash" class="section-icon"></ion-icon>
+        <h2 class="section-title">Tecnologias Utilizadas</h2>
+      </div>
+      <div class="tech-stack">
+        <div *ngFor="let tech of techStack" class="tech-badge">
+          {{ tech.name }}
+        </div>
+      </div>
+    </div>
+
+    <!-- Desenvolvedor(es) -->
+    <div class="section">
+      <div class="section-header">
+        <ion-icon name="school" class="section-icon"></ion-icon>
+        <h2 class="section-title">Equipe de Desenvolvimento</h2>
+      </div>
+      <div class="developers-list">
+        <div *ngFor="let dev of developers" class="developer-card">
+        
+          <div class="developer-info">
+            <h3 class="developer-name">{{ dev.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Informações Acadêmicas -->
+    <div class="section">
+      <div class="section-header">
+        <ion-icon name="school" class="section-icon"></ion-icon>
+        <h2 class="section-title">Informações Acadêmicas</h2>
+      </div>
+      <div class="academic-info">
+        <div class="info-row">
+          <span class="info-label">Instituição:</span>
+          <span class="info-value">UNISUAM - Universidade Augusto Motta</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Curso:</span>
+          <span class="info-value">Análise e Desenvolvimento de Sistemas</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Disciplina:</span>
+          <span class="info-value">Desenvolvimento Mobile</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Professor(a):</span>
+          <span class="info-value">Vinícius Pinto</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ações -->
+    <div class="actions-section">
+      <ion-button
+        expand="block"
+        fill="outline"
+        class="action-button"
+        (click)="openGithub()"
+      >
+        <ion-icon slot="start" name="logo-github"></ion-icon>
+        Ver no GitHub
+      </ion-button>
+      
+      <ion-button
+        expand="block"
+        fill="outline"
+        class="action-button"
+        (click)="sendEmail()"
+      >
+        <ion-icon slot="start" name="mail"></ion-icon>
+        Enviar Feedback
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

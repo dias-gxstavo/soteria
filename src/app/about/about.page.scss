@@ -1,0 +1,335 @@
+:host {
+  --background: #1a1f2e;
+  --text-primary: #e8eaf0;
+  --text-secondary: #6b7a94;
+  --card-background: #252d3f;
+  --card-border: #2d3548;
+  --accent-color: #6b8cce;
+  --accent-dark: #3b4a6b;
+  --success-color: #27ae60;
+  --heart-color: #e74c3c;
+}
+
+ion-header {
+  .modal-toolbar {
+    --background: var(--background);
+    --border-color: var(--card-border);
+    padding: 8px 16px;
+  }
+
+  .modal-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+}
+
+.close-button {
+  --color: var(--text-secondary);
+  --background-hover: var(--card-border);
+  --border-radius: 8px;
+  
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.modal-content {
+  --background: var(--background);
+}
+
+.about-container {
+  padding: 20px;
+  padding-bottom: 40px;
+}
+
+// App Header
+.app-header {
+  text-align: center;
+  padding: 20px 0 32px;
+  border-bottom: 1px solid var(--card-border);
+  margin-bottom: 24px;
+}
+
+.app-logo {
+  margin-bottom: 16px;
+}
+
+.shield-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, var(--accent-color), #5a7bb8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(107, 140, 206, 0.3);
+
+  ion-icon {
+    font-size: 40px;
+    color: #ffffff;
+  }
+}
+
+.app-title {
+  margin: 0 0 8px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.app-subtitle {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.version-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.version-badge {
+  padding: 6px 14px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 16px;
+}
+
+.build-date {
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+// Sections
+.section {
+  margin-bottom: 32px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.section-icon {
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.section-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section-text {
+  margin: 0 0 12px 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Features Grid
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.feature-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.feature-icon {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(107, 140, 206, 0.15);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  ion-icon {
+    font-size: 22px;
+    color: var(--accent-color);
+  }
+}
+
+.feature-content {
+  flex: 1;
+}
+
+.feature-title {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.feature-description {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+// Tech Stack
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-badge {
+  padding: 8px 14px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  color: var(--text-primary);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+// Developers
+.developers-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.developer-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+}
+
+.developer-avatar {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(145deg, var(--accent-color), #5a7bb8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  .avatar-icon {
+    font-size: 30px;
+    color: #ffffff;
+  }
+}
+
+.developer-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.developer-name {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.developer-role {
+  margin: 0 0 6px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.developer-contact {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--accent-color);
+  text-decoration: none;
+
+  ion-icon {
+    font-size: 14px;
+  }
+}
+
+// Academic Info
+.academic-info {
+  background-color: var(--card-background);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--card-border);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  &:first-child {
+    padding-top: 0;
+  }
+}
+
+.info-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.info-value {
+  font-size: 14px;
+  color: var(--text-primary);
+  text-align: right;
+  margin-left: 16px;
+}
+
+// Actions
+.actions-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.action-button {
+  --border-color: var(--card-border);
+  --color: var(--text-primary);
+  --background-hover: var(--card-background);
+  --border-radius: 12px;
+  height: 48px;
+  font-weight: 500;
+  text-transform: none;
+
+  ion-icon {
+    font-size: 20px;
+  }
+}

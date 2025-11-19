@@ -1,0 +1,100 @@
+<ion-content [fullscreen]="true" class="ion-no-padding">
+  <div class="container">
+    <div class="header">
+      <div class="header-content">
+        <h1>Configurações</h1>
+        <p class="header-subtitle">Personalize seu gerenciador de senhas</p>
+      </div>
+    </div>
+
+    <div class="settings-container">
+      
+      <div class="settings-section">
+        <h2 class="section-title">Segurança</h2>
+        <div class="settings-list">
+          <div *ngFor="let option of securityOptions" 
+               class="setting-item"
+               [class.clickable]="option.type === 'navigation' || option.type === 'action'"
+               (click)="option.type !== 'toggle' ? onOptionClick(option) : null">
+            <div class="setting-content">
+              <ion-icon [name]="option.icon" class="setting-icon"></ion-icon>
+              <div class="setting-text">
+                <div class="setting-title">{{ option.title }}</div>
+                <div *ngIf="option.subtitle" class="setting-subtitle">{{ option.subtitle }}</div>
+              </div>
+            </div>
+            <ion-toggle 
+              *ngIf="option.type === 'toggle'"
+              [checked]="option.value"
+              (ionChange)="onToggleChange(option, $event)"
+              class="custom-toggle"
+            ></ion-toggle>
+            <ion-icon 
+              *ngIf="option.type === 'navigation' || option.type === 'action'"
+              name="chevron-forward"
+              class="chevron-icon"
+            ></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Armazenament -->
+      <div class="settings-section">
+        <h2 class="section-title">Armazenamento</h2>
+        <div class="settings-list">
+          <div *ngFor="let option of dataOptions" 
+               class="setting-item clickable"
+               (click)="onOptionClick(option)">
+            <div class="setting-content">
+              <ion-icon [name]="option.icon" class="setting-icon"></ion-icon>
+              <div class="setting-text">
+                <div class="setting-title">{{ option.title }}</div>
+                <div *ngIf="option.subtitle" class="setting-subtitle">{{ option.subtitle }}</div>
+              </div>
+            </div>
+            <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outras Opções -->
+      <div class="settings-section">
+        <h2 class="section-title">Outras Opções</h2>
+        <div class="settings-list">
+          <div *ngFor="let option of otherOptions" 
+               class="setting-item clickable"
+               [class.danger]="option.id === 'logout'"
+               (click)="onOptionClick(option)">
+            <div class="setting-content">
+              <ion-icon [name]="option.icon" class="setting-icon"></ion-icon>
+              <div class="setting-text">
+                <div class="setting-title">{{ option.title }}</div>
+                <div *ngIf="option.subtitle" class="setting-subtitle">{{ option.subtitle }}</div>
+              </div>
+            </div>
+            <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="custom-toolbar">
+    <div class="bottom-nav">
+      <ion-button fill="clear" routerLink="/home" class="nav-button">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+
+      <ion-fab-button class="add-button" routerLink="/home">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+
+      <ion-button fill="clear" routerLink="/configuracoes" routerLinkActive="active-tab" class="nav-button">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

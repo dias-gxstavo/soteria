@@ -1,20 +1,91 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content [fullscreen]="true" class="ion-no-padding">
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="app-title">
+        <div class="logo-icon">
+          <img src="assets/icon/favicon.png" alt="Soteria Logo" class="logo-image">
+        </div>
+      </div>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+      <!-- Search Bar -->
+      <div class="search-container">
+        <ion-searchbar
+          [(ngModel)]="searchText"
+          (ionInput)="onSearch($event)"
+          placeholder="Pesquisar senhas..."
+          class="custom-searchbar"
+        ></ion-searchbar>
+      </div>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+      <!-- Stats Cards -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <ion-icon name="key" color="warning"></ion-icon>
+          <div class="stat-number">{{ totalPasswords }}</div>
+          <div class="stat-label">Senhas</div>
+        </div>
+        <div class="stat-card">
+          <ion-icon name="warning" color="danger"></ion-icon>
+          <div class="stat-number">{{ weakPasswords }}</div>
+          <div class="stat-label">Fracas</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Password Cards -->
+    <div class="passwords-container">
+      <div *ngIf="passwords.length === 0" class="empty-state">
+        <p class="empty-title">Nenhuma senha cadastrada ainda.</p>
+        <p class="empty-subtitle">Clique no botão + para adicionar.</p>
+      </div>
+
+      <div *ngIf="passwords.length > 0" class="passwords-list">
+        <div *ngFor="let item of passwords" class="password-card">
+          <div class="card-header">
+            <div class="service-info">
+              <div class="service-icon">{{ item.icon }}</div>
+              <div class="service-details">
+                <div class="service-name">{{ item.service }}</div>
+                <div class="service-username">{{ item.username }}</div>
+              </div>
+            </div>
+            <span *ngIf="item.tag" class="service-tag">{{ item.tag }}</span>
+          </div>
+          <div class="card-footer">
+            <div class="password-info">
+              <div class="password-dots">••••••••••</div>
+              <div class="password-date">Atualizada em {{ item.date }}</div>
+            </div>
+            <ion-button 
+              fill="outline" 
+              class="copy-button"
+              (click)="handleCopy(item.id)"
+            >
+              <ion-icon slot="start" name="copy-outline"></ion-icon>
+              Copiar
+            </ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar class="custom-toolbar">
+    <div class="bottom-nav">
+      <ion-button fill="clear" routerLink="/home" routerLinkActive="active-tab" class="nav-button">
+        <ion-icon name="home"></ion-icon>
+      </ion-button>
+
+      <ion-fab-button class="add-button" (click)="handleAddPassword()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+
+      <ion-button fill="clear" routerLink="/configuracoes" class="nav-button">
+        <ion-icon name="settings"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>
