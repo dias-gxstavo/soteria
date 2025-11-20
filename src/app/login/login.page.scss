@@ -1,0 +1,264 @@
+:host {
+  --background: #1a1f2e;
+  --text-primary: #e8eaf0;
+  --text-secondary: #6b7a94;
+  --card-background: #252d3f;
+  --card-border: #2d3548;
+  --accent-color: #6b8cce;
+  --danger-color: #e74c3c;
+}
+
+.login-content {
+  --background: linear-gradient(135deg, #1a1f2e 0%, #252d3f 100%);
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+// Header Section
+.header-section {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.logo-container {
+  margin-bottom: 24px;
+}
+
+.shield-icon {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background: linear-gradient(145deg, var(--accent-color), #5a7bb8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 30px rgba(107, 140, 206, 0.4);
+  animation: fadeInScale 0.6s ease-out;
+
+  ion-icon {
+    font-size: 50px;
+    color: #ffffff;
+  }
+}
+
+.ion-valid.sc-ion-input-md-h{
+  --highlight-color: none;
+}
+
+.app-name {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.welcome-text {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-secondary);
+  animation: fadeInUp 0.6s ease-out 0.3s both;
+}
+
+// Form Section
+.form-section {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.input-group {
+  margin-bottom: 24px;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.password-input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.custom-input {
+  --background: var(--card-background);
+  --color: var(--text-primary);
+  --placeholder-color: var(--text-secondary);
+  --border-radius: 12px;
+  --padding-start: 18px;
+  --padding-end: 18px;
+  border: 2px solid var(--card-border);
+  border-radius: 12px;
+  font-size: 16px;
+  flex: 1;
+  transition: border-color 0.3s;
+
+  &:focus-within {
+    border-color: var(--accent-color);
+  }
+
+  &.error {
+    border-color: var(--danger-color);
+    animation: shake 0.5s;
+  }
+
+  &::part(native) {
+    padding: 16px 18px;
+  }
+}
+
+.toggle-password-btn {
+  --color: var(--text-secondary);
+  --border-radius: 10px;
+  width: 52px;
+  height: 52px;
+  margin: 0;
+
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+// Error Message
+.error-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--danger-color);
+
+  ion-icon {
+    font-size: 16px;
+  }
+}
+
+// Buttons
+.login-button {
+  --background: var(--accent-color);
+  --background-hover: #5a7bb8;
+  --color: #ffffff;
+  --border-radius: 12px;
+  height: 56px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+  margin-bottom: 16px;
+
+  ion-icon {
+    font-size: 20px;
+  }
+
+  ion-spinner {
+    width: 24px;
+    height: 24px;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+// Divider
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--card-border);
+  }
+
+  .divider-text {
+    padding: 0 16px;
+    font-size: 13px;
+    color: var(--text-secondary);
+  }
+}
+
+// Biometric Button
+.biometric-button {
+  --border-color: var(--accent-color);
+  --color: var(--accent-color);
+  --background-hover: rgba(107, 140, 206, 0.1);
+  --border-radius: 12px;
+  height: 56px;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: none;
+  border: 2px solid var(--accent-color);
+
+  ion-icon {
+    font-size: 24px;
+  }
+}
+
+.footer-section {
+  margin-top: 40px;
+  text-align: center;
+  animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+.help-text {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+// Animations
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
