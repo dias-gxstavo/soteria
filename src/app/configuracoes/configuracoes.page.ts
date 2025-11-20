@@ -8,6 +8,8 @@ import { ModalController } from '@ionic/angular';
 import { AboutPage } from '../about/about.page'
 import { SecurityMessagePage } from '../security-message/security-message.page'
 import { ChangeMasterPasswordModalComponent } from '../change-master-password-modal/change-master-password-modal.component'
+import { ProtectMessagePage } from '../protect-message/protect-message.page'
+
 
 import { 
   home, 
@@ -21,7 +23,8 @@ import {
   helpCircle, 
   logOut,
   chevronForward,
-  book
+  book,
+  shield
 } from 'ionicons/icons';
 
 interface ConfigOption {
@@ -76,26 +79,37 @@ export class ConfiguracoesPage {
     {
       id: 'about',
       title: 'Sobre o Soteria',
-      subtitle: 'Saiba mais sobre o projeto Soteria',
+      subtitle: 'Aprendei sobre a nobre causa de Soteria!',
       icon: 'information-circle',
       type: 'navigation',
       route: '/about'
     },
     {
       id: 'about_protecao',
-      title: 'Proteção de Dados',
-      subtitle: 'Um apelo sobre a importância da proteção de dados em tempos modernos',
+      title: 'Acompanhe a batalha pelos seus dados pessoais',
+      subtitle: 'Um apelo sobre a importância da proteção do seu reino informacional em tempos modernos.',
       icon: 'book',
       type: 'navigation',
       route: '/about'
     },
-    {
-      id: 'logout',
-      title: 'Sair',
-      icon: 'log-out',
-      type: 'action'
-    }
+     {
+      id: 'dicas',
+      title: 'Proteja suas informações',
+      subtitle: 'Aprendei a guardar vossas informações como um nobre cavaleiro!',
+      icon: 'shield',
+      type: 'navigation',
+      route: '/about'
+    },
   ];
+
+  logoutOptions: ConfigOption[] = [
+      {
+        id: 'logout',
+        title: 'Sair',
+        icon: 'log-out',
+        type: 'action'
+      }
+    ];
 
   constructor(private modalController: ModalController) {
     addIcons({ 
@@ -110,7 +124,8 @@ export class ConfiguracoesPage {
       helpCircle, 
       logOut,
       chevronForward,
-      book 
+      book,
+      shield
     });
   }
 
@@ -127,11 +142,14 @@ export class ConfiguracoesPage {
     else if (option.id === 'about_protecao') {
       await this.openAboutProtecaoModal();
     }
-     else if (option.type === 'action') {
+    else if (option.type === 'action') {
       this.handleAction(option.id);
     }
-      else if (option.id === 'changeMasterPassword') {
+    else if (option.id === 'changeMasterPassword') {
       await this.openChangeMasterPasswordModal();
+    }
+    else if (option.id === 'dicas') {
+      await this.openProtectMessage();
     }
   }
 
@@ -184,6 +202,15 @@ export class ConfiguracoesPage {
     if (data?.changed) {
       console.log('Senha mestra alterada com sucesso');
     }
+  }
+
+  async openProtectMessage() {
+    const modal = await this.modalController.create({
+      component: ProtectMessagePage,
+      cssClass: 'protect-message'
+    });
+    
+    await modal.present();
   }
 }
 

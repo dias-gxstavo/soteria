@@ -26,7 +26,22 @@ export class SplashPage implements OnInit {
     }, 3500);
   }
 
-  navigateToHome() {
-    this.router.navigate(['/home']);
+  async navigateToHome() {
+  const hasMasterPassword = await this.checkMasterPasswordExists();
+  
+  if (hasMasterPassword) {
+    this.router.navigate(['/login'], { replaceUrl: true });
+  } else {
+    this.router.navigate(['/setup-master-password'], { replaceUrl: true });
   }
+}
+
+async checkMasterPasswordExists(): Promise<boolean> {
+  // Implementar verificação real
+  // const hash = await this.storageService.get('master_password_hash');
+  // return hash !== null;
+  
+  // Simulação (sempre retorna false para primeira vez)
+  return false;
+}
 }
