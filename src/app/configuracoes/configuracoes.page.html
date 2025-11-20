@@ -77,6 +77,24 @@
         </div>
       </div>
 
+      <div class="settings-section">
+        <h2 class="section-title">Logout</h2>
+        <div class="settings-list">
+          <div *ngFor="let logout of logoutOptions" 
+               class="setting-item clickable"
+               (click)="onOptionClick(logout)">
+            <div class="setting-content">
+              <ion-icon [name]="logout.icon" class="setting-icon"></ion-icon>
+              <div class="setting-text">
+                <div class="setting-title">{{ logout.title }}</div>
+                <div *ngIf="logout.subtitle" class="setting-subtitle">{{ logout.subtitle }}</div>
+              </div>
+            </div>
+            <ion-icon name="chevron-forward" class="chevron-icon"></ion-icon>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </ion-content>

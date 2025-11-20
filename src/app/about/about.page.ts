@@ -31,7 +31,7 @@ export class AboutPage {
     {
       icon: 'finger-print',
       title: 'Biometria',
-      description: 'Autenticação rápida e segura com digital ou face'
+      description: 'Autenticação rápida e segura com digital ou identificação facial'
     },
     {
       icon: 'key',
